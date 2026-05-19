@@ -1,0 +1,351 @@
+/* 1. IMPORT FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
+
+/* 2. PURPLE THEME VARIABLES */
+:root {
+    --purple-dark: #4C1D95;
+    --purple-main: #7C3AED;
+    --purple-light: #A78BFA;
+    --purple-bg: #F5F3FF;
+    --text-dark: #1E1B4B;
+    --text-light: #6B7280;
+    --white: #FFFFFF;
+    --shadow: 0 4px 6px -1px rgba(76, 29, 149, 0.15);
+    --shadow-lg: 0 10px 15px -3px rgba(76, 29, 149, 0.2);
+}
+
+/* 3. GLOBAL RESET & BODY */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--purple-bg);
+    overflow-x: hidden; 
+}
+
+/* 4. HEADER & DRAMATIC H1  */
+header {
+    background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-main) 100%);
+    color: var(--white);
+    padding: 80px 20px 70px;
+    text-align: center;
+    position: relative;
+    overflow: visible; 
+    z-index: 1;
+}
+
+header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.8rem;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+    color: #ffffff;
+    z-index: 2;
+    
+    /* Bounce Animation  */
+    animation: bounce 2s ease-in-out infinite;
+    
+    /* Glow Effect (Inakosheka) */
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.9),
+        0 0 20px rgba(167, 139, 250, 0.8),
+        0 0 40px rgba(124, 58, 237, 0.6),
+        0 0 60px rgba(76, 29, 149, 0.4);
+}
+
+/* Shine */
+header h1::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.7) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shineSweep 3s linear infinite;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    z-index: 3;
+}
+
+/* Maua & Sparkles (🌸✨) */
+header h1::after {
+    content: "🌸 ✨ ";
+    position: absolute;
+    top: -15px;
+    right: -50px;
+    font-size: 1.5rem;
+    animation: floatFlower 2.5s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 8px rgba(167, 139, 250, 0.9));
+    z-index: 1;
+    white-space: nowrap;
+}
+
+/* Animations Keyframes */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes shineSweep {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes floatFlower {
+    0% { transform: translateY(0) rotate(-5deg) scale(1); }
+    100% { transform: translateY(-10px) rotate(10deg) scale(1.1); }
+}
+
+header p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--purple-light);
+    color: var(--purple-dark);
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3);
+    background: var(--white);
+}
+
+/* 5. NAVIGATION */
+nav {
+    background: var(--white);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--purple-dark);
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav a:hover, nav a.active {
+    color: var(--purple-main);
+    background: rgba(124, 58, 237, 0.1);
+}
+
+/* 6. MAIN SECTIONS */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section {
+    margin: 60px 0;
+    padding: 40px;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.section h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2rem;
+    color: var(--purple-dark);
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px; left: 0;
+    width: 60px; height: 4px;
+    background: var(--purple-main);
+    border-radius: 2px;
+}
+
+/* 7. SKILLS GRID */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.skill-card {
+    background: var(--purple-bg);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--purple-light);
+}
+
+.skill-card i {
+    font-size: 2.5rem;
+    color: var(--purple-main);
+    margin-bottom: 15px;
+}
+
+.skill-card h3 {
+    margin-bottom: 10px;
+    color: var(--purple-dark);
+}
+
+/* 8. QUALIFICATIONS (TIMELINE) */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+    border-left: 3px solid var(--purple-light);
+}
+
+.timeline-item {
+    margin-bottom: 30px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -37px; top: 5px;
+    width: 12px; height: 12px;
+    background: var(--purple-main);
+    border-radius: 50%;
+    border: 2px solid var(--white);
+}
+
+.timeline-date {
+    font-weight: 700;
+    color: var(--purple-main);
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.timeline-content h3 {
+    color: var(--purple-dark);
+    margin-bottom: 5px;
+}
+
+/* 9. PROJECTS */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: var(--purple-bg);
+    padding: 25px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--purple-main);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.tags span {
+    background: rgba(124, 58, 237, 0.15);
+    color: var(--purple-main);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 10. CONTACT & FOOTER */
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--purple-main);
+    color: var(--white);
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    background: var(--purple-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(76, 29, 149, 0.25);
+}
+
+footer {
+    background: var(--purple-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 11. RESPONSIVE */
+@media (max-width: 768px) {
+    header h1 { font-size: 2.5rem; }
+    header h1::after { 
+        right: 0; 
+        top: -30px; 
+        font-size: 1.2rem; 
+    } 
+    nav ul { gap: 15px; }
+    .section { padding: 25px; }
+    .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+    .contact-links { flex-direction: column; align-items: center; }
+}
