@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. 🖋️ TYPEWRITER EFFECT 
+  // 1. TYPEWRITER EFFECT 
   const subtitle = document.querySelector('header p');
   if (subtitle) {
     const text = subtitle.textContent;
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     typeWriter();
   }
 
-  // 2. 📊 SCROLL PROGRESS BAR 
+  // 2. SCROLL PROGRESS BAR 
   const progressBar = document.createElement('div');
   progressBar.style.cssText = `
     position: fixed; top: 0; left: 0; height: 4px; 
@@ -80,13 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
     revealObserver.observe(el);
   });
 
-  // 5. 📅 DYNAMIC FOOTER YEAR
+  // 5. DYNAMIC FOOTER YEAR
   const footerText = document.querySelector('footer p');
   if (footerText) {
     footerText.innerHTML = `&copy; ${new Date().getFullYear()} Phibe Wilbert Bertold. Built with ❤️ & Cloud Technologies.`;
   }
 
-  // 6. 🌟 CONSOLE GREETING 
+  // 6. CONSOLE GREETING 
   const hour = new Date().getHours();
   let greeting = 'Good Evening';
   if (hour < 12) greeting = 'Good Morning';
