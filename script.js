@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5. 📅 DYNAMIC FOOTER YEAR
   const footerText = document.querySelector('footer p');
   if (footerText) {
-    footerText.innerHTML = `&copy; ${new Date().getFullYear()} Phibe Wilbert. Built with ❤️ & Cloud Technologies.`;
+    footerText.innerHTML = `&copy; ${new Date().getFullYear()} Phibe Wilbert Bertold. Built with ❤️`;
   }
 
   // 6. 🌟 CONSOLE GREETING (Kwa developers wanao-open inspect)
