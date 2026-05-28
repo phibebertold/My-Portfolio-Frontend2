@@ -83,7 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5. 📅 DYNAMIC FOOTER YEAR
   const footerText = document.querySelector('footer p');
   if (footerText) {
+<<<<<<< HEAD
     footerText.innerHTML = `&copy; ${new Date().getFullYear()} Phibe Wilbert Bertold. Built with ❤️ .`;
+=======
+    footerText.innerHTML = `&copy; ${new Date().getFullYear()} Phibe Wilbert Bertold. Built with ❤️ & Cloud Technologies.`;
+>>>>>>> 788822b21d4092ab901a6bed7567c232f460ecc7
   }
 
   // 6. 🌟 CONSOLE GREETING 
