@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. 🖋️ TYPEWRITER EFFECT 
+  // 1. 🖋️ TYPEWRITER EFFECT (Subtitle inajandika yenyewe)
   const subtitle = document.querySelector('header p');
   if (subtitle) {
     const text = subtitle.textContent;
@@ -10,13 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (i < text.length) {
         subtitle.textContent += text.charAt(i);
         i++;
-        setTimeout(typeWriter, 45); 
+        setTimeout(typeWriter, 45); // Badilisha 45 kuwa 30 (fast) au 60 (slow)
       }
     }
     typeWriter();
   }
 
-  // 2. 📊 SCROLL PROGRESS BAR 
+  // 2. 📊 SCROLL PROGRESS BAR (Mstari wa purple juu ya screen)
   const progressBar = document.createElement('div');
   progressBar.style.cssText = `
     position: fixed; top: 0; left: 0; height: 4px; 
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     progressBar.style.width = scrolled + "%";
   });
 
-  // 3.  SMOOTH SCROLL & ACTIVE NAV HIGHLIGHT
+  // 3. ️ SMOOTH SCROLL & ACTIVE NAV HIGHLIGHT
   document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4.  STAGGERED SCROLL REVEAL 
+  // 4.  STAGGERED SCROLL REVEAL (Cards zinaingia moja baada ya nyingine)
   const revealItems = document.querySelectorAll('.skill-card, .project-card, .timeline-item, .contact-btn');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -76,21 +76,17 @@ document.addEventListener('DOMContentLoaded', () => {
   revealItems.forEach((el, index) => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
-    el.style.transition = `all 0.6s ease ${index * 0.1}s`; // Stagger delay
+    el.style.transition = `all 0.6s ease ${index * 0.1}s`;
     revealObserver.observe(el);
   });
 
   // 5. 📅 DYNAMIC FOOTER YEAR
   const footerText = document.querySelector('footer p');
   if (footerText) {
-<<<<<<< HEAD
-    footerText.innerHTML = `&copy; ${new Date().getFullYear()} Phibe Wilbert Bertold. Built with ❤️ .`;
-=======
-    footerText.innerHTML = `&copy; ${new Date().getFullYear()} Phibe Wilbert Bertold. Built with ❤️ & Cloud Technologies.`;
->>>>>>> 788822b21d4092ab901a6bed7567c232f460ecc7
+    footerText.innerHTML = `&copy; ${new Date().getFullYear()} Phibe Wilbert. Built with ❤️ & Cloud Technologies.`;
   }
 
-  // 6. 🌟 CONSOLE GREETING 
+  // 6. 🌟 CONSOLE GREETING (Kwa developers wanao-open inspect)
   const hour = new Date().getHours();
   let greeting = 'Good Evening';
   if (hour < 12) greeting = 'Good Morning';

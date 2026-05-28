@@ -1,4 +1,4 @@
-/* 1. IMPORT FONTS(on top) */
+/* 1. IMPORT FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
 
 /* 2. PURPLE THEME VARIABLES */
@@ -29,7 +29,7 @@ body {
     overflow-x: hidden;
 }
 
-/* 4. HEADER & DRAMATIC H1 (clouds + flowers & Bounce) */
+/* 4. HEADER & MOVING CLOUDS */
 header {
     background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-main) 100%);
     color: var(--white);
@@ -40,8 +40,7 @@ header {
     z-index: 1;
 }
 
-<<<<<<< HEAD
-/* ☁️ Safari-Friendly Moving Clouds */
+/* ☁️ Cloud 1 (Larger, Faster) */
 header::before {
     content: "";
     position: absolute;
@@ -52,13 +51,15 @@ header::before {
     background: rgba(255, 255, 255, 0.12);
     border-radius: 50px;
     box-shadow: 
-        0 0 25px rgba(167, 139, 250, 0.5),
         45px -18px 0 -6px rgba(255, 255, 255, 0.1),
         -35px -12px 0 -8px rgba(255, 255, 255, 0.08);
+    filter: blur(1.5px);
     animation: moveClouds 18s linear infinite;
     z-index: 0;
+    will-change: transform;
 }
 
+/* ☁️ Cloud 2 (Smaller, Slower) */
 header::after {
     content: "";
     position: absolute;
@@ -69,44 +70,19 @@ header::after {
     background: rgba(255, 255, 255, 0.08);
     border-radius: 40px;
     box-shadow: 
-        0 0 20px rgba(167, 139, 250, 0.4),
         35px -12px 0 -5px rgba(255, 255, 255, 0.06);
-    animation: moveClouds 25s linear infinite;
+    filter: blur(1px);
+    animation: moveClouds 26s linear infinite;
     z-index: 0;
-=======
-/* purple moving clouds */
-header::before {
-    content: "☁️ ☁️ ️";
-    position: absolute;
-    top: 20px;
-    left: -100px;
-    font-size: 3rem;
-    opacity: 0.4;
-    filter: drop-shadow(0 0 10px rgba(167, 139, 250, 0.6));
-    animation: moveClouds 15s linear infinite;
-    z-index: 0;
-    white-space: nowrap;
-}
-
-header::after {
-    content: "☁️ ☁️";
-    position: absolute;
-    top: 60px;
-    left: -150px;
-    font-size: 2rem;
-    opacity: 0.3;
-    filter: drop-shadow(0 0 8px rgba(167, 139, 250, 0.5));
-    animation: moveClouds 20s linear infinite;
-    z-index: 0;
-    white-space: nowrap;
->>>>>>> 788822b21d4092ab901a6bed7567c232f460ecc7
+    will-change: transform;
 }
 
 @keyframes moveClouds {
-    0% { transform: translateX(-100px); }
-    100% { transform: translateX(calc(100vw + 200px)); }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(100vw + 300px)); }
 }
 
+/*  H1 BOUNCING + GLOW */
 header h1 {
     font-family: 'Dancing Script', cursive;
     font-size: 3.8rem;
@@ -115,11 +91,7 @@ header h1 {
     display: inline-block;
     color: #ffffff;
     z-index: 2;
-    
-    /* Bounce Animation */
     animation: bounce 2s ease-in-out infinite;
-    
-    /* Glow Effect */
     text-shadow: 
         0 0 10px rgba(255, 255, 255, 0.9),
         0 0 20px rgba(167, 139, 250, 0.8),
@@ -127,7 +99,7 @@ header h1 {
         0 0 60px rgba(76, 29, 149, 0.4);
 }
 
-/* Shine */
+/* 💫 Shine Sweep Effect */
 header h1::before {
     content: "";
     position: absolute;
@@ -140,9 +112,9 @@ header h1::before {
     z-index: 3;
 }
 
-/* flowers & Sparkles (🌸✨) */
+/* 🌸 Floating Flowers */
 header h1::after {
-    content: "🌸 ✨ ";
+    content: "🌸  🌺";
     position: absolute;
     top: -15px;
     right: -60px;
@@ -153,7 +125,7 @@ header h1::after {
     white-space: nowrap;
 }
 
-/* Animations */
+/* 🎬 KEYFRAMES */
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-12px); }
@@ -403,22 +375,12 @@ footer {
     font-family: 'Poppins', sans-serif;
 }
 
-/* 11. RESPONSIVE (in the phone) */
+/* 11. RESPONSIVE */
 @media (max-width: 768px) {
     header h1 { font-size: 2.5rem; }
-    header h1::after { 
-        right: 0; 
-        top: -30px; 
-        font-size: 1.2rem; 
-    }
-    header::before {
-        font-size: 2rem;
-        top: 10px;
-    }
-    header::after {
-        font-size: 1.5rem;
-        top: 50px;
-    }
+    header h1::after { right: 0; top: -30px; font-size: 1.2rem; }
+    header::before { top: 20px; width: 90px; height: 30px; }
+    header::after { top: 60px; width: 70px; height: 25px; }
     nav ul { gap: 15px; }
     .section { padding: 25px; }
     .skills-grid, .projects-grid { grid-template-columns: 1fr; }
